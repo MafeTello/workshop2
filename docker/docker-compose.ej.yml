@@ -1,0 +1,27 @@
+
+services:  
+  db_mafe_test:
+    image: postgres:16
+    container_name: db_mafe_test
+    environment: 
+      - POSTGRES_PASSWORD=
+      - POSTGRES_DB=
+    command: ["postgres", "-c", "max_connections=1000"]
+    restart: always
+    networks:
+      - mafenet
+    ports: 
+      - 54321:5432
+    volumes:
+      - postgres_data_mafe:/var/lib/postgresql/data
+
+
+
+volumes:
+  postgres_data_mafe:
+
+networks:
+  mafenet:
+    name: mafenet
+    driver: bridge
+
