@@ -1,8 +1,6 @@
 # ETL Workshop - Spotify and Grammy Awards Data Integration
 
-Este proyecto tiene como objetivo procesar y analizar datasets d
-
-e Spotify y los premios Grammy mediante técnicas de ETL (Extract, Transform, Load). El flujo completo incluye la extracción de datos, transformaciones, carga en bases de datos, visualización de datos y la creación de un tablero en Power BI.
+Este proyecto tiene como objetivo procesar y analizar datasets de Spotify y los premios Grammy mediante técnicas de ETL (Extract, Transform, Load). El flujo completo incluye la extracción de datos, transformaciones, carga en bases de datos, visualización de datos y la creación de un tablero en Power BI.
 
 ## Contenidos
 - [Descripción del Proyecto](#descripción-del-proyecto)
@@ -97,8 +95,9 @@ Para la configuración de PostgreSQL, realiza lo siguiente:
 ## Instalación
 
 ### 1. Clonar el Repositorio
-```bash
 git clone https://github.com/MafeTello/workshop2.git
 cd workshop2
 
 
+### Create virtual environment for Python
+  python -m venv venv
