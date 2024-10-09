@@ -4,7 +4,6 @@ Este proyecto tiene como objetivo procesar y analizar datasets de Spotify y los 
 
 ## Contenidos
 - [Descripción del Proyecto](#descripción-del-proyecto)
-  - [Fuentes de Datos](#fuentes-de-datos)
   - [Estructura del Proyecto](#estructura-del-proyecto)
   - [Tecnologías Utilizadas](#tecnologías-utilizadas)
 - [Guía de Inicio](#guía-de-inicio)
@@ -25,11 +24,9 @@ Este proyecto tiene dos objetivos principales:
 
 ### Fuentes de Datos
 1. **Dataset de los Premios Grammy**  
-   - Fuente: [Kaggle](https://www.kaggle.com/datasets/unanimad/grammy-awards)
    - Descripción: Información sobre ganadores, nominados y categorías de los premios Grammy a lo largo de los años.
 
 2. **Dataset de Spotify**  
-   - Fuente: [Kaggle](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
    - Descripción: Más de 114,000 canciones con características como popularidad, energía y duración.
 
 ### Estructura del Proyecto
