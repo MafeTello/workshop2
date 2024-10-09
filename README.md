@@ -3,18 +3,18 @@
 This project aims to process and analyze datasets from Spotify and the Grammy Awards using ETL (Extract, Transform, Load) techniques. The complete flow includes data extraction, transformations, loading into databases, data visualization, and the creation of a dashboard in Power BI.
 
 ## Contenidos
-- [Project Description](#descripción-del-proyecto)
-  - [Project Structure](#estructura-del-proyecto)
-  - [Technologies Used](#tecnologías-utilizadas)
+- [Project Description](#Project-Description)
+  - [Project Structure](#Project-Structure)
+  - [Technologies Used](#Technologies-Used)
 - [Getting Started Guide](#guía-de-inicio)
-  - [Prerequisites](#requisitos-previos)
-  - [Virtual Machine Configuration](#configuración-de-la-máquina-virtual)
-  - [PostgreSQL Configuration](#configuración-de-postgresql)
-- [Installation](#instalación)
-  - [Google Drive API Configuration](#configuración-de-la-api-de-google-drive)
-  - [Airflow Installation](#instalación-de-airflow)
-- [Dashboard](#tablero-de-visualización)
-- [contact](#contacto)
+  - [Prerequisites](#Prerequisites)
+  - [Virtual Machine Configuration](#Virtual-Machine-Configuration)
+  - [PostgreSQL Configuration](#PostgreSQL-Configuration)
+- [Installation](#Installation)
+  - [Google Drive API Configuration](#Google-Drive-API-Configuration)
+  - [Airflow Installation](#Airflow-Installation)
+- [Dashboard](#Dashboard)
+- [contact](#contact)
 
 ## Project Description
 This project has two main goals:
@@ -52,7 +52,7 @@ The project is organized into the following folders:
   - **spotify_popularity_analysis.png**: Analysis of song popularity on Spotify.
   - **grammy_winners_trends.png**: Grammy Award Winners Trends.
 
-###Technologies Used
+### Technologies Used
 - **Python** (Pandas, SQLAlchemy)
 - **PostgreSQL**
 - **Apache Airflow**
