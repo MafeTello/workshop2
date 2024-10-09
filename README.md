@@ -100,17 +100,76 @@ git clone https://github.com/MafeTello/workshop2.git
 cd workshop2
 ```
 
-### Create virtual environment for Python
+### Configuración del Entorno Python
 ```bash
-  python -m venv venv
-```
+  pip install virtualenv
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
-### Activate the enviroment
-```bash
-  source venv/bin/activate 
-```
-
-### Install libreries
-```bash
-  pip install -r requirements.txt
   ```
+
+### Configuración de la API de Google Drive
+
+**Crear Proyecto en Google Cloud**
+Accede al Google Cloud Console y crea un nuevo proyecto.
+
+**Habilitar la API de Google Drive**
+Navega a "Biblioteca" en Google Cloud y busca la **API de Google Drive**. Habilítala para el proyecto creado.
+
+**Crear Cuenta de Servicio**
+1. En el menú de "Credenciales", selecciona "Crear credencial" y elige "Cuenta de servicio".
+2. Asigna un nombre a la cuenta de servicio y otórgale los permisos necesarios.
+3. Genera una clave de autenticación en formato JSON y descárgala.
+4. Renombra el archivo descargado a driveapi.json y colócalo en el directorio raíz del proyecto.
+
+**Compartir Carpeta en Google Drive**
+1. Crea una carpeta en Google Drive.
+2. Comparte el acceso con la cuenta de servicio utilizando el correo electrónico proporcionado en el archivo JSON.
+
+
+### Instalación de airflow
+1. **Configurar Directorio de Airflow**
+Crea un directorio para Airflow y establece la variable de entorno AIRFLOW_HOME:
+
+```bash
+export AIRFLOW_HOME=~/airflow
+```
+
+2. **Inicializar Base de Datos de Airflow**
+```bash
+airflow db init
+```
+
+3. **Iniciar Airflow**
+```bash
+airflow standalone
+```
+
+4. **Acceso a la Interfaz Web de Airflow**
+Abre un navegador y accede a http://localhost:8080. Inicia sesión con las credenciales predeterminadas generadas en la consola.
+
+
+## Tablero de visulaización
+
+El proyecto incluye un tablero interactivo creado en Power BI, que permite visualizar las principales métricas y tendencias de los datasets de Spotify y los premios Grammy. Algunas preguntas clave que responde el tablero incluyen:
+
+* ¿Cuál es la distribución de la popularidad de las canciones en Spotify?
+* ¿Cómo ha cambiado el número de ganadores de los Grammy a lo largo de los años?
+* ¿Cuáles son los géneros musicales más representados en Spotify y los premios Grammy?
+
+### Cómo acceder al tablero:
+1. Conectar Power BI a PostgreSQL
+* En Power BI, selecciona PostgreSQL como la fuente de datos e ingresa las credenciales de tu base de datos.
+
+2. Crear Visualizaciones
+* Importa las tablas procesadas en PostgreSQL y utiliza Power BI para generar gráficos y reportes interactivos.
+
+## Contacto
+María Fernanda Tello Vergara
+Email: _maria_fernanda.tello@uao.edu.co_
+GitHub: MafeTello
+
+```bash
+
+```
