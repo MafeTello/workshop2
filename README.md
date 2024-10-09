@@ -143,7 +143,7 @@ airflow standalone
 4. **Accessing the Airflow Web Interface**
 Open a browser and go to http://localhost:8080. Log in with the default credentials generated in the console.
 
-## Visualization Dashboard
+## Dashboard
 
 The project includes an interactive dashboard created in Power BI, which allows you to visualize the main metrics and trends of the Spotify and Grammy Awards datasets. Some key questions that the dashboard answers include:
 
