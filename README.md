@@ -167,9 +167,7 @@ El proyecto incluye un tablero interactivo creado en Power BI, que permite visua
 
 ## Contacto
 María Fernanda Tello Vergara
+
 Email: _maria_fernanda.tello@uao.edu.co_
+
 GitHub: MafeTello
-
-```bash
-
-```
