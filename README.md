@@ -95,9 +95,22 @@ Para la configuración de PostgreSQL, realiza lo siguiente:
 ## Instalación
 
 ### 1. Clonar el Repositorio
+```bash
 git clone https://github.com/MafeTello/workshop2.git
 cd workshop2
-
+```
 
 ### Create virtual environment for Python
+```bash
   python -m venv venv
+```
+
+### Activate the enviroment
+```bash
+  source venv/bin/activate 
+```
+
+### Install libreries
+```bash
+  pip install -r requirements.txt
+  ```
