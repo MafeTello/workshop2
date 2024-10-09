@@ -1,114 +1,94 @@
-# Workshop 2 - ETL with Airflow and Data Visualization
+# ETL Workshop - Spotify and Grammy Awards Data Integration
 
-This project demonstrates an ETL (Extract, Transform, Load) pipeline using datasets from Spotify and the Grammy Awards. The data is processed using Python, Airflow, PostgreSQL, and Google Drive API, and visualized with Power BI.
+Este proyecto tiene como objetivo procesar y analizar datasets de Spotify y los premios Grammy mediante técnicas de ETL (Extract, Transform, Load). El flujo completo incluye la extracción de datos, transformaciones, carga en bases de datos, visualización de datos y la creación de un tablero en Power BI.
 
-# ETL - Workshop-02 - Spotify and Grammy Awards Data Process by María Fernanda Tello Vergara
+## Contenidos
+- [Descripción del Proyecto](#descripción-del-proyecto)
+  - [Fuentes de Datos](#fuentes-de-datos)
+  - [Estructura del Proyecto](#estructura-del-proyecto)
+  - [Tecnologías Utilizadas](#tecnologías-utilizadas)
+- [Guía de Inicio](#guía-de-inicio)
+  - [Requisitos Previos](#requisitos-previos)
+  - [Configuración de la Máquina Virtual](#configuración-de-la-máquina-virtual)
+  - [Configuración de PostgreSQL](#configuración-de-postgresql)
+- [Instalación](#instalación)
+  - [Configuración de la API de Google Drive](#configuración-de-la-api-de-google-drive)
+  - [Instalación de Airflow](#instalación-de-airflow)
+- [Tablero de Visualización](#tablero-de-visualización)
+- [Contacto](#contacto)
 
-## Table of Contents
-- [About The Project](#about-the-project)
-  - [Data Source](#data-source)
-  - [Folders Path](#folders-path)
-  - [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Virtual Machine Setup](#virtual-machine-setup)
-  - [PostgreSQL](#postgresql)
-- [Installation](#installation)
-  - [Google Drive API](#google-drive-api)
-  - [Airflow](#airflow)
-- [Dashboard](#dashboard)
+## Descripción del Proyecto
 
-## About The Project
+Este proyecto tiene dos objetivos principales:
+1. Integrar y procesar datos de los datasets de Spotify y los premios Grammy.
+2. Proporcionar una visualización útil de las tendencias y características clave de ambos conjuntos de datos a través de un tablero interactivo.
 
-### Data Source
-1. **Grammy Awards Dataset**  
-   - Source: [Kaggle - Grammy Awards Dataset](https://www.kaggle.com/datasets/unanimad/grammy-awards/)  
-   - Description: This dataset includes information about Grammy Award winners, nominees, and categories.
+### Fuentes de Datos
+1. **Dataset de los Premios Grammy**  
+   - Fuente: [Kaggle](https://www.kaggle.com/datasets/unanimad/grammy-awards)
+   - Descripción: Información sobre ganadores, nominados y categorías de los premios Grammy a lo largo de los años.
 
-2. **Spotify Tracks Dataset**  
-   - Source: [Kaggle - Spotify Tracks Dataset](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)  
-   - Description: This dataset includes more than 114,000 tracks from Spotify, providing detailed song features like popularity, danceability, energy, etc.
+2. **Dataset de Spotify**  
+   - Fuente: [Kaggle](https://www.kaggle.com/datasets/maharshipandya/-spotify-tracks-dataset)
+   - Descripción: Más de 114,000 canciones con características como popularidad, energía y duración.
 
-### Folders Path
+### Estructura del Proyecto
 
-The project is organized in the following directory structure:
+El proyecto está organizado en las siguientes carpetas:
 
-- **Dags/**  
-  - **dag/**  
-    - **Grammys.py**: ETL process related to Grammy dataset.
-    - **Spotify.py**: ETL process related to Spotify dataset.
-    - **Load.py**: Handles loading data into databases.
-    - **Merge.py**: Combines the data from both sources (Spotify & Grammy) and applies transformations.
+- **etl_scripts/**: Contiene los scripts principales de ETL que realizan las operaciones de extracción, transformación y carga.
+  - **spotify_etl.py**: Realiza las transformaciones y carga del dataset de Spotify.
+  - **grammy_etl.py**: Procesa los datos del dataset de los premios Grammy.
+  
+- **data/**: Almacena los archivos de datos en formato CSV.
+  - **spotify_data.csv**: Dataset de Spotify.
+  - **grammy_data.csv**: Dataset de los premios Grammy.
 
-- **Dashboard/**  
-  - **Dashboard_workshop2.pdf**: Power BI dashboard related to the project.
+- **notebooks/**: Contiene los análisis exploratorios realizados en Jupyter Notebooks.
+  - **eda_spotify.ipynb**: Análisis del dataset de Spotify.
+  - **eda_grammy.ipynb**: Análisis del dataset de los premios Grammy.
 
-- **Document/**  
-  - **workshop2.pdf**: Detailed project documentation.
+- **db/**: Scripts SQL para la creación y gestión de la base de datos PostgreSQL.
+  - **create_tables.sql**: Define las tablas de la base de datos.
+  
+- **visualizations/**: Contiene gráficos y visualizaciones generados a partir de los análisis de datos.
+  - **spotify_popularity_analysis.png**: Análisis de la popularidad de las canciones en Spotify.
+  - **grammy_winners_trends.png**: Tendencias de los ganadores de los premios Grammy.
 
-- **Notebooks/**  
-  - **EDA_grammy.ipynb**: Exploratory Data Analysis (EDA) for the Grammy dataset.
-  - **EDA_spotify.ipynb**: EDA for the Spotify dataset.
-  - **charge.py**: Script related to handling dataset transformations.
+### Tecnologías Utilizadas
+- **Python** (Pandas, SQLAlchemy)
+- **PostgreSQL**
+- **Apache Airflow**
+- **Google Drive API**
+- **Power BI**
+- **Jupyter Notebook**
 
-- **docker/**  
-  - **docker-compose.ej.yml**: Docker compose file to set up the project's containerized environment.
+## Guía de Inicio
 
-- **pyDrive/**  
-  - **GoogleDrive.py**: Handles Google Drive API interactions.
-  - **QuickStart.py**: Quick setup for Google Drive API usage.
+### Requisitos Previos
+Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 
-- **src/**  
-  - **db_connection.py**: Handles database connections and operations.
+1. **Python 3.x**  
+   Descárgalo desde [python.org](https://www.python.org/downloads/).
 
-- **.gitignore**: Specifies files and folders ignored by Git.
-- **README.md**: The documentation file you are currently reading.
-- **requirements.txt**: List of Python dependencies required for the project.
+2. **PostgreSQL**  
+   Instálalo desde [postgresql.org](https://www.postgresql.org/download/).
 
-### Built With
-- Python (Pandas, Matplotlib, SQLAlchemy, dotenv)
-- PostgreSQL
-- Jupyter Notebook
-- Docker
-- Apache Airflow
-- Google Drive API
-- Power BI
-- Git
+3. **Docker**  
+   Para ejecutar el entorno en contenedores, descárgalo desde [docker.com](https://www.docker.com/).
 
-## Getting Started
+### Configuración de la Máquina Virtual
 
-### Prerequisites
-Before running the project, ensure you have the following software installed:
-1. **Python 3.12.3** 🐍  
-   Install from [Python Official Website](https://www.python.org/downloads/).
-   
-2. **PostgreSQL** 🐘  
-   Download from [PostgreSQL Website](https://www.postgresql.org/download/).
-   
-3. **Docker** 🐳  
-   Install Docker by following instructions from [Docker Website](https://www.docker.com/).
-   
-4. **Google Drive API**  
-   Set up Google Drive API by following the steps in the [Google Drive API documentation](#google-drive-api).
+Para correr el proyecto en una máquina virtual, sigue estos pasos:
 
-### Virtual Machine Setup
-1. **Install Ubuntu**  
-   Set up a virtual machine using [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and install the latest Ubuntu LTS version.
-   
-2. **PostgreSQL Setup**  
-   Follow instructions in the [PostgreSQL section](#postgresql) to configure your PostgreSQL instance.
+1. Crea una nueva máquina virtual usando VirtualBox.
+2. Instala Ubuntu LTS en la máquina virtual.
+3. Configura el acceso a internet en la VM para poder conectarla a tu máquina local y a internet.
 
-### PostgreSQL
+### Configuración de PostgreSQL
 
-To configure PostgreSQL, perform the following steps:
-1. Edit the `postgresql.conf` file to listen on all addresses:  
+Para la configuración de PostgreSQL, realiza lo siguiente:
+
+1. Modifica el archivo `postgresql.conf` para habilitar el acceso desde cualquier IP:
    ```plaintext
    listen_addresses = '*'
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/MafeTello/workshop2.git
-cd workshop2
-
-
